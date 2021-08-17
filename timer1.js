@@ -1,10 +1,9 @@
-const input = process.argv
+const input = process.argv.slice(2);
 
-let delay = 0;
-for (let i = 2; i < input.length; i++) {
-  let nodeInput = Number(input[i]);
-  if (nodeInput > 0 && typeof nodeInput === 'number') {
-    delay = nodeInput * 1000;
+for (let num of input) {
+  let seconds = Number(num);
+  if (seconds > 0 && typeof seconds === 'number') {
+    let delay = seconds * 1000;
     setTimeout(() => process.stdout.write('.\n'), delay);
   }
 };
